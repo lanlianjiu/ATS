@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html ng-app="adminUserlist" ng-controller="controller">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="../lib/plugins/bootstrap-table/css/bootstrap-table.min.css" />
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+
+    <!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+    <title>用户列表</title>
+</head>
+
+<body>
+    <div class="page-container">
+        <form bootstrap-table-form="userList-table" class="form-inline">
+            <div class="cl pd-5 bg-1 bk-gray text-l">
+                用户角色：
+                <span class="select-box inline">
+                    <select name="" class="select">
+                        <option value="0">--请选择--</option>
+                        <option value="1">平台管理员</option>
+                        <option value="2">公司管理员</option>
+                    </select>
+                </span> 日期范围：
+                <input type="text" id="logmin" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" class="input-text Wdate"
+                    style="width:120px;"> -
+                <input type="text" id="logmax" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" class="input-text Wdate"
+                    style="width:120px;">
+                <button name="" id="" class="btn btn-primary" type="submit" bootstrap-table-search="userList-table">
+                    <i class="Hui-iconfont Hui-iconfont-search2"></i> 搜索</button>
+            </div>
+        </form>
+        <div class="action-toolbar">
+            <span class="l">
+                <button ng-click="bathDel()" class="btn btn-danger radius">
+                    <i class="Hui-iconfont Hui-iconfont-del3"></i> 批量删除</button>
+                <button class="btn btn-primary radius" ng-click="addUser()">
+                    <i class="Hui-iconfont Hui-iconfont-add"></i> 添加用户</button>
+            </span>
+        </div>
+        <div>
+            <table id="userList-table" data-toolbar=".action-toolbar" data-autoheigth="55" data-toggle="table" data-checkbox="true" data-pagination="true"
+                data-id-field="id" data-unique-id="id" data-custom-url="InterfaceRequest.php?r=adminuser/index" data-autoheight="5"
+                data-pagination="true" class="table table-border table-bordered table-bg table-hover table-sort table-responsive th-table">
+                <thead>
+                    <tr>
+                        <th data-checkbox="true" width="80"></th>
+                        <th data-sortable="true" data-field="id" width="80">ID</th>
+                        <th data-sortable="true" data-field="username" width="120">用户名称</th>
+                        <th data-sortable="true" data-field="status" width="80">用户状态</th>
+                        <th data-sortable="true" data-field="role" width="80">用户角色</th>
+                        <th data-sortable="true" data-field="vip" width="80">vip等级</th>
+                        <th data-sortable="true" data-field="email" width="120">邮箱</th>
+                        <th data-sortable="true" data-field="createdTime" width="120">创建时间</th>
+                        <th data-formatter="operateFormatter" width="120">操作</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal bootstrap-dialog type-primary fade" id="userDialog">
+        <div class="modal-dialog" style="width:700px">
+            <div class="modal-content">
+                <div class="modal-header" style="border:0px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h5 class="modal-title bootstrap-dialog-title no-padding">{{data.title}}</h5>
+                </div>
+                <div class="panel panel-default content-dialog">
+                    <form action="" method="post" class="form form-horizontal" id="form-admin-user-add">
+                        <div class="modal-body">
+                            <div class="row cl">
+                                <label class="form-label col-xs-2 col-sm-2">
+                                    <span class="c-red">*</span>用户名称：</label>
+                                <div class="formControls col-xs-10 col-sm-10">
+                                    <input type="text" class="input-text" ng-model="formData.username" placeholder="" name="username">
+                                </div>
+                            </div>
+                            <div class="row cl" ng-if="formData.isEdit">
+                                <label class="form-label col-xs-2 col-sm-2">
+                                    <span class="c-red">*</span>用户密码：</label>
+                                <div class="formControls col-xs-10 col-sm-10">
+                                    <input type="text" class="input-text" ng-model="formData.password" placeholder="" name="password">
+                                </div>
+                            </div>
+                            <div class="row cl">
+                                <label class="form-label col-xs-2 col-sm-2">
+                                    <span class="c-red">*</span>用户电话：</label>
+                                <div class="formControls col-xs-10 col-sm-10">
+                                    <input type="text" class="input-text" ng-model="formData.usermobile" placeholder="" name="usermobile">
+                                </div>
+                            </div>
+                            <div class="row cl">
+                                <label class="form-label col-xs-2 col-sm-2">
+                                    <span class="c-red">*</span>用户邮箱：</label>
+                                <div class="formControls col-xs-10 col-sm-10">
+                                    <input type="text" class="input-text" ng-model="formData.email" placeholder="" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer text-c">
+                            <div class="btn btn-primary radius" ng-click="saveUser()">确定</div>
+                            <button type="button radius" class="btn btn-white" data-dismiss="modal">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/iov.config.js"></script>
+
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript" src="../lib/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="../lib/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <script src="../js/iov.min.js"></script>
+    <script src="js/adminUserlist.js"></script>
+</body>
+
+</html>

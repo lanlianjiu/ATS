@@ -1,0 +1,22 @@
+{
+  "name": "mca",
+  "description": "yii2.0-mca",
+  "main": "index.js",
+  "authors": [
+    "lanlianjiu <674074365@qq.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/lanlianjiu/MCA",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.11"
+  }
+}

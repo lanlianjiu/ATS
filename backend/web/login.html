@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html ng-app="adminLogin" ng-controller="controller">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+    <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/supershopui/ui/css/login.css" rel="stylesheet" />
+    <!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+    <title>登录 </title>
+
+    <body class="login-bg">
+        <div class="main ">
+            <!--登录-->
+            <div class="login-dom login-max">
+                <div class="logo text-center">
+                    <a href="#">
+                        <img src="lib/supershopui/ui/img/logo.png" width="180px" height="180px" />
+                    </a>
+                </div>
+                <div class="login container " id="login">
+                    <form id="loginform" class="login-form">
+                        <div class=" border text-small">
+                            <div class="model-body text-center">
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <input id="userName" ng-model="data.userName" name="userName" type="text" placeholder="账户" class="form-control name size-L">
+                                    </div>
+
+                                </div>
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <input id="password" ng-model="data.password" name="password" type="password" placeholder="密码" class="form-control pwd size-L">
+                                    </div>
+                                </div>
+                                <div class="form-inline text-small">
+                                    <input type="checkbox" ng-model="data.rememberMe" name="rememberMe" id="rememberMe" ng-true-value="1" ng-false-value="1"
+                                        value="1">
+                                    <span class="ligthColor">记住账号密码？</span>
+                                </div>
+                                <div class="form-inline">
+                                    <button type="submit" class="btn text-center login-btn" ng-click="login()">立即登录</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="footer text-center text-small ie">
+                2013-2016 版权所有 lanlianjiu 2015-2018
+                <a href="#" target="_blank">粤ICP备1801334号-1</a>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-1.4.8.min.js"></script>
+    <script type="text/javascript" src="js/iov.min.js"></script>
+    <script type="text/javascript" src="auth/login.js"></script>
+
+</html>
