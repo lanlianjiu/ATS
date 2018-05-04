@@ -28,3 +28,14 @@ function operateFormatter(value, row, index) {
     h += '<a style = "text-decoration:none"class = "ml-5" onclick ="order_del(' + row.orderId + ')"href = "javascript:;"title = "删除"><i class = "Hui-iconfont Hui-iconfont-del3" ></i> </a>';
     return h;
 };
+
+function addOrder() {
+    
+    addTabs(({
+        id: '10000',
+        title: '新增订单',
+        close: true,
+        childrenIframeopen:true,
+        url: 'ATS/backend/web/OSM/createOrder.html?orderId=5'
+    }));
+};

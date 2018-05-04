@@ -1831,14 +1831,19 @@ $(function () {
 
 //sidebar - menu组件封装
 //在页面上面直接调用sidebar - menu的方法
-
 var addTabs = function(options) {
         var url = window.location.protocol + '//' + window.location.host + "/";
         options.url = url + options.url;
         id = "tab_" + options.id;
         var title = "", content = "";
         //如果TAB不存在，创建一个新的TAB
-        if (!$("#" + id)[0]) {
+        
+    if (options.childrenIframeopen) {
+        var tags = (!$("#" + id, parent.document)[0]);
+    }else{
+        var tags = (!$("#" + id)[0]);
+    }
+    if (tags) {
             var mainHeight = App.getViewPort().height - $('.page-footer').outerHeight() - $('.page-header').outerHeight() - $(".content-tabs").height();
             //固定TAB中IFRAME高度
             // mainHeight = $(document.body).height() - 90;
@@ -1883,29 +1888,62 @@ var addTabs = function(options) {
             Cookies.set('currentmoduleName', options.title, { path: '/' });
             Cookies.set('currentmoduleId', options.id, { path: '/' });
             //加入TABS
-            $(".page-tabs-content").append(title);
+            if (options.childrenIframeopen){
+               //子页面打开
+                $(".page-tabs-content", parent.document).append(title);
+                $("#tab-content", parent.document).append(content);
+                $(".page-tabs-content > a.active", parent.document).removeClass("active");
+                $("#tab-content > .active", parent.document).removeClass("active");
 
-            $("#tab-content").append(content);
-          
+                //var height = $(".tab_iframe").height() + 1;
+                //$(".tab_iframe").css({
+                //    height: height
+                //});
+                //激活TAB
+                $("#tab_" + id, parent.document).addClass('active');
+                // if (isNewOpen===false) {
+                scrollToTab($('.menu_tab.active', parent.document));
+                // }
+                $("#" + id, parent.document).addClass("active");
+               
+            }else{
+                $(".page-tabs-content").append(title);
+                $("#tab-content").append(content);
+                $(".page-tabs-content > a.active").removeClass("active");
+                $("#tab-content > .active").removeClass("active");
 
-        }
-        $(".page-tabs-content > a.active").removeClass("active");
-        $("#tab-content > .active").removeClass("active");
+                //var height = $(".tab_iframe").height() + 1;
+                //$(".tab_iframe").css({
+                //    height: height
+                //});
+                //激活TAB
+                $("#tab_" + id).addClass('active');
+                // if (isNewOpen===false) {
+                scrollToTab($('.menu_tab.active'));
+                // }
+                $("#" + id).addClass("active");
+            };
 
-        //var height = $(".tab_iframe").height() + 1;
-        //$(".tab_iframe").css({
-        //    height: height
-        //});
-        //激活TAB
-        $("#tab_" + id).addClass('active');
-       // if (isNewOpen===false) {
-            scrollToTab($('.menu_tab.active'));
-       // }
-    $("#" + id).addClass("active");
+        }else{
 
+            if (options.childrenIframeopen) {
+               
+                $(".page-tabs-content > a.active", parent.document).removeClass("active");
+                $("#tab-content > .active", parent.document).removeClass("active");
+                $("#tab_" + id, parent.document).addClass('active');
+                scrollToTab($('.menu_tab.active', parent.document));
+                $("#" + id, parent.document).addClass("active");
+            } else {
+                
+                $(".page-tabs-content > a.active").removeClass("active");
+                $("#tab-content > .active").removeClass("active");
+                $("#tab_" + id).addClass('active');
+                scrollToTab($('.menu_tab.active'));
+                $("#" + id).addClass("active");
+            }
+        };
+       
     };
-
-
 
     var closeTab = function(item) {
         var id = $(item).attr("data-id");
