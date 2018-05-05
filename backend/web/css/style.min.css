@@ -10,6 +10,10 @@
     padding: 10px;
 }
 
+.border-rs1 {
+    border-right: 1px solid #ddd!important;
+}
+
 .panel {
     margin-bottom: 0px;
     background-color: #fff;

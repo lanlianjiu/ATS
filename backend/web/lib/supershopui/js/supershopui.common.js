@@ -2829,7 +2829,7 @@ var addTabs = function (options) {
         // mainHeight = $(document.body).height() - 90;
         //创建新TAB的title
         
-        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab" >';
+        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab border-rs1" >';
         //是否允许关闭
         if (options.close) {
 
