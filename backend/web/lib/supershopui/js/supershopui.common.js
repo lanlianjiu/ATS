@@ -2809,7 +2809,7 @@ var addTabs = function (options) {
     if(!(options.id)){
         options.id = $.utils.uuid();
     };
-    
+
     id = "tab_" + options.id;
     var title = "",
         content = "";
@@ -2828,12 +2828,18 @@ var addTabs = function (options) {
         //固定TAB中IFRAME高度
         // mainHeight = $(document.body).height() - 90;
         //创建新TAB的title
-        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab" >' + options.title;
+        
+        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab" >';
         //是否允许关闭
         if (options.close) {
 
-            title += ' <i class="fa fa-remove page_tab_close" style="cursor: pointer;" data-id="' + id + '" onclick="closeTab(this)"></i>';
-        }
+            title += '<i class="fa fa-refresh page_tab_refresh" onclick="javascript:refreshTab();"></i>' + options.title;
+            title += '<i class="fa fa-remove page_tab_close" style="cursor: pointer;" data-id="' + id + '" onclick="closeTab(this)"></i>';
+        }else{
+
+            title += options.title;
+        };
+
         title += '</a>';
         var loadIframe = "";
         //是否指定TAB内容
@@ -2911,7 +2917,7 @@ var addTabs = function (options) {
     } else {
 
         if (options.childrenIframeopen) {
-
+            
             $(".page-tabs-content > a.active", parent.document).removeClass("active");
             $("#tab-content > .active", parent.document).removeClass("active");
             $("#tab_" + id, parent.document).addClass('active');

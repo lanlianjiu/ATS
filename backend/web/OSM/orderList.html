@@ -19,17 +19,39 @@
     <title>订单列表</title>
 </head>
 
-<body>
-    <div class="page-container">
-        <form bootstrap-table-form="orderList-table" class="form-inline">
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form bootstrap-table-form="orderList-table">
+                    <div class="form-inline">
+                        订单类型：
+                        <span class=" inline">
+                            <select name="type" class="form-control">
+                                <option value="0">--请选择--</option>
+                                <option value="1">用户单</option>
+                                <option value="2">运单</option>
+                            </select>
+                        </span> 日期范围：
+                        <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" name="logmin" class="form-control Wdate"
+                            style="width:120px;"> -
+                        <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" name="logmax"
+                            class="form-control Wdate" style="width:120px;">
+                        <input type="text" name="orderNo" id="" placeholder="单号" style="width:250px" class="form-control">
+                        <button name="" id="" class="btn btn-primary" type="submit" bootstrap-table-search="orderList-table">
+                            <i class="fa fa-search"></i> 搜索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-        </form>
         <div class="action-toolbar">
             <button ng-click="batchdel()" class="btn btn-danger radius">
                 <i class="fa fa-trash"></i> 批量删除</button>
             <a class="btn btn-primary radius" onclick="addOrder();" href="javascript:;">
                 <i class="fa fa-plus"></i> 添加</a>
         </div>
+
         <div>
             <table id="orderList-table" data-toolbar=".action-toolbar" data-toggle="table" data-show-columns="true" data-show-export="true"
                 data-pagination="true" data-filter-control="true" data-checkbox="true" data-autoheight="5" data-show-export="true"
@@ -59,7 +81,7 @@
     <!--请在下方写此页面业务相关的脚本-->
     <script type="text/javascript" src="../lib/plugins/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="../lib/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
-
+    <script type="text/javascript" src="../lib/plugins/My97DatePicker/4.8/WdatePicker.js"></script>
     <script type="text/javascript" src="../lib/plugins/bootstrap-extensions/tableExport.min.js"></script>
     <script type="text/javascript" src="../lib/plugins/bootstrap-extensions/bootstrap-table-export/bootstrap-table-export.js"></script>
     <script type="text/javascript" src="../lib/plugins/bootstrap-extensions/toolbar/bootstrap-table-toolbar.js"></script>

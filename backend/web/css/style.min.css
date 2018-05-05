@@ -1,3 +1,34 @@
+.wrapper-content {
+    padding: 10px 10px 0;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+.panel {
+    margin-bottom: 0px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
 .ml-5 {
     margin-left: 5px;
+}
+
+.input-group>input {
+    border: 0px;
+    width: 100%;
+    line-height: 30px;
 }

@@ -23,65 +23,66 @@
 
 <body>
 
-    <div class="page-container">
-        <form class="form form-horizontal">
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">
-                    <span class="c-red">*</span>商品：</label>
-                <div class="formControls col-xs-8 col-sm-9">
+    <div class="wrapper wrapper-content">
+        <form class="form">
+            <div class="row">
+                <label class="col-xs-4 col-sm-2 text-right">
+                    <span>*</span>商品：</label>
+                <div class="form-group col-xs-8 col-sm-9">
                     <select id="goods" data-select-plugins="InterfaceRequest.php?r=plugins/regioncity" iov-ng-model="data.region_Id" data-option-value="regionId"
                         data-option-label="regionName" class="show-tick form-control">
                     </select>
                 </div>
             </div>
 
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">
-                    <span class="c-red">*</span>地址：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <div data-suggestion-inputId="testNoBtn" data-suggestion-plugin="InterfaceRequest.php?r=plugins/regioncity" data-suggestion-key="regionId"
-                        data-suggestion-name="regionName" data-suggestion-searchNames="regionName" iov-ng-model="data.regionName"></div>
+            <div class="row">
+                <label class="col-xs-4 col-sm-2 text-right">
+                    <span>*</span>地址：</label>
+                <div class="form-group  col-xs-8 col-sm-9">
+                    <div class="form-control no-padding" data-suggestion-inputId="testNoBtn" data-suggestion-plugin="InterfaceRequest.php?r=plugins/regioncity"
+                        data-suggestion-key="regionId" data-suggestion-name="regionName" data-suggestion-searchNames="regionName"
+                        iov-ng-model="data.regionName"></div>
                 </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">
-                    <span class="c-red">*</span>联系人：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" ng-model="data.consignee" id="consignee" name="consignee">
+
+            <div class="row">
+                <label class="col-xs-4 col-sm-2 text-right">
+                    <span>*</span>联系人：
+                </label>
+                <div class="form-group col-xs-8 col-sm-9">
+                    <input type="text" class="form-control" ng-model="data.consignee" id="consignee" name="consignee">
                 </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">联系电话：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" id="consigneePhone" name="consigneePhone">
+            <div class="row ">
+                <label class="col-xs-4 col-sm-2 text-right">联系电话：</label>
+                <div class="form-group col-xs-8 col-sm-9">
+                    <input type="text" class="form-control" id="consigneePhone" name="consigneePhone">
                 </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">收货地址：</label>
-                <div id="regin-plugin" data-region-plugin="InterfaceRequest.php?r=plugins/regionplugin" class="formControls col-xs-8 col-sm-9 form-inline">
-                    <select class="select-box" ng-model="data.province" name="province"></select>
-                    <select class="select-box" ng-model="data.city" name="city" style="margin-top:15px;"></select>
-                    <select class="select-box" ng-model="data.area" name="area" style="margin-top:15px;"></select>
+            <div class="row">
+                <label class="col-xs-4 col-sm-2 text-right">收货地址：</label>
+                <div id="regin-plugin" data-region-plugin="InterfaceRequest.php?r=plugins/regionplugin" class="form-group col-xs-8 col-sm-9 form-inline">
+                    <select class="form-control" ng-model="data.province" name="province"></select>
+                    <select class="form-control" ng-model="data.city" name="city"></select>
+                    <select class="form-control" ng-model="data.area" name="area"></select>
                 </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">详细地址：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <textarea name="orderAddr" ng-model="data.orderAddr" cols="" rows="" class="textarea"></textarea>
-                    <p class="textarea-numberbar">
-                        <em class="textarea-length">0</em>/200</p>
+            <div class="row">
+                <label class="col-xs-4 col-sm-2 text-right">详细地址：</label>
+                <div class="form-group col-xs-8 col-sm-9">
+                    <textarea name="orderAddr" ng-model="data.orderAddr" cols="" rows="" class="form-control"></textarea>
                 </div>
             </div>
-            <div class="row cl">
-                <label class="form-label col-xs-4 col-sm-2">订单金额：</label>
-                <div class="formControls col-xs-8 col-sm-9">
-                    <input type="text" class="input-text" ng-model="data.orderAmont" id="orderAmont" name="orderAmont">
+            <div class="row">
+                <label class="col-xs-4 col-sm-2 text-right">订单金额：</label>
+                <div class="form-group col-xs-8 col-sm-9">
+                    <input type="text" class="form-control" ng-model="data.orderAmont" id="orderAmont" name="orderAmont">
                 </div>
             </div>
-            <div class="row cl">
+            <div class="row">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
                     <button ng-click="saveOrder();" class="btn btn-primary radius" type="submit">
-                        <i class="Hui-iconfont">&#xe632;</i> 保存</button>
+                        <i class="fa fa-save"></i> 保存</button>
                 </div>
             </div>
         </form>
@@ -93,9 +94,9 @@
     <!--/_footer /作为公共模版分离出去-->
 
     <!--请在下方写此页面业务相关的脚本-->
-    <script type="text/javascript" src="../lib/My97DatePicker/4.8/WdatePicker.js"></script>
-    <script type="text/javascript" src="../lib/plugin/cityPlugin/jquery.citys.js"></script>
-    <script type="text/javascript" src="../lib/bootstrap/bootstrap-suggest-plugin/bootstrap-suggest.min.js"></script>
+    <script type="text/javascript" src="../lib/plugins/My97DatePicker/4.8/WdatePicker.js"></script>
+    <script type="text/javascript" src="../lib/plugins/cityPlugin/jquery.citys.js"></script>
+    <script type="text/javascript" src="../lib/plugins/bootstrap-suggest-plugin/bootstrap-suggest.min.js"></script>
     <script src="../js/iov.min.js"></script>
 
     <script type="text/javascript" src="js/createOrder.js"></script>

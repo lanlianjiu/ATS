@@ -3,3 +3,11 @@
     width: 40px;
     border-radius: 50%;
 }
+
+.page_tab_refresh {
+    margin-right: 5px;
+}
+
+.page_tab_close {
+    margin-left: 5px;
+}
