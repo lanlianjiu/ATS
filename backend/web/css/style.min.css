@@ -1,3 +1,7 @@
+html {
+    overflow: hidden;
+}
+
 .wrapper-content {
     padding: 10px 10px 0;
 }
@@ -35,4 +39,22 @@
     border: 0px;
     width: 100%;
     line-height: 30px;
+}
+
+.menu_tab-irframe {
+    border-right: solid 1px #e7ebee !important;
+}
+
+.logo {
+    color: #FFF !important;
+}
+
+.logo:hover {
+    color: #FFF !important;
+}
+
+.btn-white {
+    color: inherit;
+    background: white;
+    border: 1px solid #e7eaec;
 }

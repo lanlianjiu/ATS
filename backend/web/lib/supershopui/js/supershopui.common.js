@@ -2822,7 +2822,7 @@ var addTabs = function (options) {
         // mainHeight = $(document.body).height() - 90;
         //创建新TAB的title
 
-        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab" >';
+        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab menu_tab-irframe" >';
         //是否允许关闭
         if (options.close) {
 
@@ -3422,7 +3422,7 @@ $(function () {
             var a;
             if (null == this.el) {
                 if (a = document.querySelector(D.target), !a) throw new i;
-                this.el = document.createElement("div"), this.el.className = "pace pace-active", document.body.className = document.body.className.replace(/pace-done/g, ""), document.body.className += " pace-running", this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>', null != a.firstChild ? a.insertBefore(this.el, a.firstChild) : a.appendChild(this.el)
+                this.el = document.createElement("div"), this.el.className = "pace pace-active", document.body.className = document.body.className.replace(/pace-done/g, ""), document.body.className += " pace-running", this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>', null != a.firstChild ? a.insertBefore(this.el, a.firstChild) : a.appendChild(this.el)
             }
             return this.el
         }, a.prototype.finish = function () {
