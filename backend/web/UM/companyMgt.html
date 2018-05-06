@@ -34,18 +34,20 @@
 </head>
 
 <body>
-    <div class="page-container">
-        <div class="cl pd-5 bg-1 bk-gray text-l">
-            公司类型：
-            <span class="select-box inline">
-                <select name="" class="select">
-                    <option value="0">--请选择--</option>
-                    <option value="1">平台管理员</option>
-                    <option value="2">公司管理员</option>
-                </select>
-            </span>
-            <button name="" id="" class="btn btn-primary" type="submit">
-                <i class="Hui-iconfont Hui-iconfont-search2"></i> 搜索</button>
+    <div class="wrapper wrapper-content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-inline">
+                    公司类型：
+                    <select name="" class="form-control">
+                        <option value="0">--请选择--</option>
+                        <option value="1">平台管理员</option>
+                        <option value="2">公司管理员</option>
+                    </select>
+                    <button name="" id="" class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"></i> 搜索</button>
+                </div>
+            </div>
         </div>
         <div class="cl mt-20">
             <div class="col-md-3" style="padding-left:0px;">
@@ -112,6 +114,7 @@
             </div>
         </div>
     </div>
+
     <!-- 新增·、修改 -->
     <div class="modal bootstrap-dialog type-primary fade" id="addCompanydialog">
         <div class="modal-dialog" style="width:700px">
@@ -120,43 +123,43 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h5 class="modal-title bootstrap-dialog-title no-padding">{{data.title}}</h5>
                 </div>
-                <div class="panel panel-default content-dialog">
+                <div class="panel-default content-dialog">
                     <form action="" method="post" class="form form-horizontal" id="form-admin-user-add">
                         <div class="modal-body">
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">
-                                    <span class="c-red">*</span>公司编码：</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <input type="text" class="input-text" ng-model="formData.companyCode" placeholder="" name="companyCode">
+                            <div class="row">
+                                <label class="form-label text-right col-sm-2">
+                                    <span>*</span>公司编码：</label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" ng-model="formData.companyCode" placeholder="" name="companyCode">
                                 </div>
                             </div>
-                            <div class="row cl" ng-if="formData.isEdit">
-                                <label class="form-label col-xs-2 col-sm-2">
-                                    <span class="c-red">*</span>公司名称：</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <input type="text" class="input-text" ng-model="formData.companyName" placeholder="" name="companyName">
+                            <div class="row" ng-if="formData.isEdit">
+                                <label class="form-label text-right col-sm-2">
+                                    <span>*</span>公司名称：</label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" ng-model="formData.companyName" placeholder="" name="companyName">
                                 </div>
                             </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">
-                                    <span class="c-red">*</span>公司类型：</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <input type="text" class="input-text" ng-model="formData.cTypeId" placeholder="" name="cTypeId">
+                            <div class="row">
+                                <label class="form-label text-right col-sm-2">
+                                    <span>*</span>公司类型：</label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" ng-model="formData.cTypeId" placeholder="" name="cTypeId">
                                 </div>
                             </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">
+                            <div class="row">
+                                <label class="form-label text-right col-sm-2">
                                     &#12288;
-                                    <span class="c-red">*</span>所在地：</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <input type="text" class="input-text" ng-model="formData.regionId" placeholder="" name="regionId">
+                                    <span>*</span>所在地：</label>
+                                <div class="form-group col-sm-10">
+                                    <input type="text" class="form-control" ng-model="formData.regionId" placeholder="" name="regionId">
                                 </div>
                             </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">
-                                    <span class="c-red">*</span>详细地址：</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <textarea rows="3" class="input-text" ng-model="formData.officeAddress" placeholder="" name="officeAddress"></textarea>
+                            <div class="row">
+                                <label class="form-label text-right col-sm-2">
+                                    <span>*</span>详细地址：</label>
+                                <div class="form-group col-sm-10">
+                                    <textarea rows="3" class="form-control" ng-model="formData.officeAddress" placeholder="" name="officeAddress"></textarea>
                                 </div>
                             </div>
                         </div>

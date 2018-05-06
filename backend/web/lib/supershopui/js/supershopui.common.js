@@ -2806,7 +2806,7 @@ var addTabs = function (options) {
     var url = window.location.protocol + '//' + window.location.host + "/";
     options.url = url + options.url;
 
-    if(!(options.id)){
+    if (!(options.id)) {
         options.id = $.utils.uuid();
     };
 
@@ -2814,28 +2814,21 @@ var addTabs = function (options) {
     var title = "",
         content = "";
     //如果TAB不存在，创建一个新的TAB
+    var openNew = (options.childrenIframeopen) ? (!$('[data-tab-url="tab_' + options.url + '"]', parent.document)[0]):(!$('[data-tab-url="tab_' + options.url + '"]')[0]);
 
-    if (options.childrenIframeopen) {
-        
-        var tags = (!$('[data-tab-url="tab_' + options.url + '"]', parent.document)[0]);
-    } else {
-
-        var tags = (!$('[data-tab-url="tab_' + options.url + '"]')[0]);
-    };
-
-    if (tags) {
+    if (openNew) {
         var mainHeight = App.getViewPort().height - $('.page-footer').outerHeight() - $('.page-header').outerHeight() - $(".content-tabs").height();
         //固定TAB中IFRAME高度
         // mainHeight = $(document.body).height() - 90;
         //创建新TAB的title
-        
-        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab border-rs1" >';
+
+        title = '<a href="javascript:void(0);" id="tab_' + id + '" data-tab-url="tab_' + options.url + '" data-id="' + id + '"  class="menu_tab menu_tab-irframe" >';
         //是否允许关闭
         if (options.close) {
 
             title += '<i class="fa fa-refresh page_tab_refresh" onclick="javascript:refreshTab();"></i>' + options.title;
             title += '<i class="fa fa-remove page_tab_close" style="cursor: pointer;" data-id="' + id + '" onclick="closeTab(this)"></i>';
-        }else{
+        } else {
 
             title += options.title;
         };
@@ -2847,7 +2840,6 @@ var addTabs = function (options) {
             content = '<div role="tabpanel" class="tab-pane" id="' + id + '">' + options.content + '</div>';
         } else { //没有内容，使用IFRAME打开链接
             //    App.startPageLoading({ message: '加载中......' });
-
             //    App.stopPageLoading();
 
             App.blockUI({
@@ -2856,7 +2848,7 @@ var addTabs = function (options) {
                 message: '加载中......' //,
                 // animate: true
             });
-            content = '<div role="tabpanel" class="tab-pane" id="' + id + '">';
+            content = '<div role="tabpanel" class="tab-pane" data-div-iframe="' + options.url + '" id="' + id + '">';
 
             loadIframe = '<iframe onload="javascript:App.unblockUI(\'#tab-content\');" src="' + options.url + '" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="yes"  allowtransparency="yes" id="iframe_' + id + '" class="  tab_iframe"></iframe>';
 
@@ -2871,58 +2863,48 @@ var addTabs = function (options) {
         //    type: "post",
         //    dataType: "text"
         //});
+
         Cookies.set('currentmoduleName', options.title, {
             path: '/'
         });
+
         Cookies.set('currentmoduleId', options.id, {
             path: '/'
         });
+
         //加入TABS
         if (options.childrenIframeopen) {
+
             //子页面打开
             $(".page-tabs-content", parent.document).append(title);
             $("#tab-content", parent.document).append(content);
             $(".page-tabs-content > a.active", parent.document).removeClass("active");
             $("#tab-content > .active", parent.document).removeClass("active");
-
-            //var height = $(".tab_iframe").height() + 1;
-            //$(".tab_iframe").css({
-            //    height: height
-            //});
             //激活TAB
             $("#tab_" + id, parent.document).addClass('active');
-            // if (isNewOpen===false) {
-            scrollToTab($('.menu_tab.active', parent.document));
-            // }
+            scrollToTab($('.menu_tab.active'));
             $("#" + id, parent.document).addClass("active");
-
         } else {
+
             $(".page-tabs-content").append(title);
             $("#tab-content").append(content);
             $(".page-tabs-content > a.active").removeClass("active");
             $("#tab-content > .active").removeClass("active");
-
-            //var height = $(".tab_iframe").height() + 1;
-            //$(".tab_iframe").css({
-            //    height: height
-            //});
             //激活TAB
             $("#tab_" + id).addClass('active');
-            // if (isNewOpen===false) {
             scrollToTab($('.menu_tab.active'));
-            // }
             $("#" + id).addClass("active");
         };
 
     } else {
 
         if (options.childrenIframeopen) {
-            
+           
             $(".page-tabs-content > a.active", parent.document).removeClass("active");
             $("#tab-content > .active", parent.document).removeClass("active");
-            $("#tab_" + id, parent.document).addClass('active');
+            $('[data-tab-url="tab_' + options.url + '"]', parent.document).addClass('active');
             scrollToTab($('.menu_tab.active', parent.document));
-            $("#" + id, parent.document).addClass("active");
+            $('[data-div-iframe="' + options.url + '"]', parent.document).addClass("active");
         } else {
 
             $(".page-tabs-content > a.active").removeClass("active");
@@ -3094,8 +3076,6 @@ var activeTab = function () {
     scrollToTab(this);
 
 }
-
-
 
 $(function () {
     $(".menuTabs").on("click", ".menu_tab", activeTab);
@@ -3442,7 +3422,7 @@ $(function () {
             var a;
             if (null == this.el) {
                 if (a = document.querySelector(D.target), !a) throw new i;
-                this.el = document.createElement("div"), this.el.className = "pace pace-active", document.body.className = document.body.className.replace(/pace-done/g, ""), document.body.className += " pace-running", this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>', null != a.firstChild ? a.insertBefore(this.el, a.firstChild) : a.appendChild(this.el)
+                this.el = document.createElement("div"), this.el.className = "pace pace-active", document.body.className = document.body.className.replace(/pace-done/g, ""), document.body.className += " pace-running", this.el.innerHTML = '<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>', null != a.firstChild ? a.insertBefore(this.el, a.firstChild) : a.appendChild(this.el)
             }
             return this.el
         }, a.prototype.finish = function () {
