@@ -116,8 +116,8 @@ function user_edit(id) {
 function operateFormatter(value, row, index) {
     var h = "";
 
-    h += '<a style="text-decoration:none" class="ml-5" onclick="user_edit(' + row.id + ')" href="javascript:;" title="编辑"> <i class = "Hui-iconfont" > &#xe6df; </i> </a>';
+    h += '<a class="ml-5" onclick="user_edit(' + row.id + ')" href="javascript:;" title="编辑"> <i class="fa fa-pencil"></i></a>';
 
-    h += '<a style = "text-decoration:none"class = "ml-5" onclick ="user_del(' + row.id + ')"href = "javascript:;"title = "删除"><i class = "Hui-iconfont" > &#xe6e2; </i> </a>';
+    h += '<a class = "ml-5" onclick ="user_del(' + row.id + ')"href = "javascript:;"title = "删除"><i class = "fa fa-trash" ></i> </a>';
     return h;
 }
