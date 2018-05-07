@@ -2118,7 +2118,7 @@ var App = function () {
     var handleIframeLayoutContent = function () {
         var height = App.getViewPort().height - $('.main-footer').outerHeight() - $('.main-header').outerHeight() - $(".content-tabs").outerHeight();
         $(".tab_iframe").css({
-            height: height
+            height: height - 5
         });
         //var width = App.getViewPort().width- $(".page-sidebar-menu").width();
         $(".tab_iframe").css({
@@ -2814,7 +2814,7 @@ var addTabs = function (options) {
     var title = "",
         content = "";
     //如果TAB不存在，创建一个新的TAB
-    var openNew = (options.childrenIframeopen) ? (!$('[data-tab-url="tab_' + options.url + '"]', parent.document)[0]):(!$('[data-tab-url="tab_' + options.url + '"]')[0]);
+    var openNew = (options.childrenIframeopen) ? (!$('[data-tab-url="tab_' + options.url + '"]', parent.document)[0]) : (!$('[data-tab-url="tab_' + options.url + '"]')[0]);
 
     if (openNew) {
         var mainHeight = App.getViewPort().height - $('.page-footer').outerHeight() - $('.page-header').outerHeight() - $(".content-tabs").height();
@@ -2899,7 +2899,7 @@ var addTabs = function (options) {
     } else {
 
         if (options.childrenIframeopen) {
-           
+
             $(".page-tabs-content > a.active", parent.document).removeClass("active");
             $("#tab-content > .active", parent.document).removeClass("active");
             $('[data-tab-url="tab_' + options.url + '"]', parent.document).addClass('active');
@@ -3067,12 +3067,12 @@ var activeTab = function () {
     $("#tab_" + id).addClass('active');
     $("#" + id).addClass("active");
     //主要是针对激活tab后，滚动条消失问题，触发一下滚动条事件
-    $("#iframe_" + id).animate({
-        height: App.getIframeLayoutHeight() + 1
-    }, 500);
-    $("#iframe_" + id).animate({
-        height: App.getIframeLayoutHeight() - 1
-    }, 500);
+    // $("#iframe_" + id).animate({
+    //     height: App.getIframeLayoutHeight() + 1
+    // }, 500);
+    // $("#iframe_" + id).animate({
+    //     height: App.getIframeLayoutHeight() - 1
+    // }, 500);
     scrollToTab(this);
 
 }

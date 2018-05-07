@@ -24,68 +24,63 @@
 <body>
 
     <div class="wrapper wrapper-content">
-        <form class="form">
-            <div class="row">
-                <label class="col-xs-4 col-sm-2 text-right">
-                    <span>*</span>商品：</label>
-                <div class="form-group col-xs-8 col-sm-9">
-                    <select id="goods" data-select-plugins="InterfaceRequest.php?r=plugins/regioncity" iov-ng-model="data.region_Id" data-option-value="regionId"
-                        data-option-label="regionName" class="form-control">
-                    </select>
-                </div>
-            </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <td>
+                            <label>
+                                <span>*</span>联系人：
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" ng-model="data.consignee" id="consignee" name="consignee">
+                        </td>
+                        <td>
 
-            <div class="row">
-                <label class="col-xs-4 col-sm-2 text-right">
-                    <span>*</span>地址：</label>
-                <div class="form-group  col-xs-8 col-sm-9">
-                    <div class="form-control no-padding" data-suggestion-inputId="testNoBtn" data-suggestion-plugin="InterfaceRequest.php?r=plugins/regioncity"
-                        data-suggestion-key="regionId" data-suggestion-name="regionName" data-suggestion-searchNames="regionName"
-                        iov-ng-model="data.regionName"></div>
-                </div>
+                        </td>
+                        <td>
+                            <label>联系电话：</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="consigneePhone" name="consigneePhone">
+                        </td>
+                        <td>
+                            <label>收货地址：</label>
+                        </td>
+                        <td colspan="3">
+                            <div id="regin-plugin" data-region-plugin="InterfaceRequest.php?r=plugins/regionplugin" class="form-group col-xs-8 col-sm-9 form-inline">
+                                <select class="form-control" ng-model="data.province" name="province"></select>
+                                <select class="form-control" ng-model="data.city" name="city"></select>
+                                <select class="form-control" ng-model="data.area" name="area"></select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                <label>详细地址：</label>
+                            </label>
+                        </td>
+                        <td>
+                            <textarea name="orderAddr" ng-model="data.orderAddr" cols="" rows="" class="form-control"></textarea>
+                        </td>
+                    </tr>
+                </table>
             </div>
-
-            <div class="row">
-                <label class="col-xs-4 col-sm-2 text-right">
-                    <span>*</span>联系人：
-                </label>
-                <div class="form-group col-xs-8 col-sm-9">
-                    <input type="text" class="form-control" ng-model="data.consignee" id="consignee" name="consignee">
-                </div>
+        </div>
+        <div class="row">
+            <label class="col-xs-4 col-sm-2 text-right">订单金额：</label>
+            <div class="form-group col-xs-8 col-sm-9">
+                <input type="text" class="form-control" ng-model="data.orderAmont" id="orderAmont" name="orderAmont">
             </div>
-            <div class="row ">
-                <label class="col-xs-4 col-sm-2 text-right">联系电话：</label>
-                <div class="form-group col-xs-8 col-sm-9">
-                    <input type="text" class="form-control" id="consigneePhone" name="consigneePhone">
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button ng-click="saveOrder();" class="btn btn-primary radius" type="submit">
+                    <i class="fa fa-save"></i> 保存</button>
             </div>
-            <div class="row">
-                <label class="col-xs-4 col-sm-2 text-right">收货地址：</label>
-                <div id="regin-plugin" data-region-plugin="InterfaceRequest.php?r=plugins/regionplugin" class="form-group col-xs-8 col-sm-9 form-inline">
-                    <select class="form-control" ng-model="data.province" name="province"></select>
-                    <select class="form-control" ng-model="data.city" name="city"></select>
-                    <select class="form-control" ng-model="data.area" name="area"></select>
-                </div>
-            </div>
-            <div class="row">
-                <label class="col-xs-4 col-sm-2 text-right">详细地址：</label>
-                <div class="form-group col-xs-8 col-sm-9">
-                    <textarea name="orderAddr" ng-model="data.orderAddr" cols="" rows="" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <label class="col-xs-4 col-sm-2 text-right">订单金额：</label>
-                <div class="form-group col-xs-8 col-sm-9">
-                    <input type="text" class="form-control" ng-model="data.orderAmont" id="orderAmont" name="orderAmont">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                    <button ng-click="saveOrder();" class="btn btn-primary radius" type="submit">
-                        <i class="fa fa-save"></i> 保存</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 
     <!--_footer 作为公共模版分离出去-->
