@@ -7,7 +7,6 @@ return [
             //'dsn' => 'mysql:host=192.168.184.128;dbname=mca',
             'username' => 'root',
             'password' => 'root',
-            //'password' => '',
             'charset' => 'utf8',
         ],
         'mailer' => [
