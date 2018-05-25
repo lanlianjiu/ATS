@@ -1,6 +1,15 @@
-
 .wrapper-content {
     padding: 10px 10px 0;
+}
+
+.no-border-table>thead>tr>th {
+    border: 0px;
+    border-bottom: 0px !important;
+}
+
+.no-border-table>tbody>tr>td {
+    border: 0px;
+    border-bottom: 0px;
 }
 
 .no-padding {
@@ -12,7 +21,7 @@
 }
 
 .border-rs1 {
-    border-right: 1px solid #ddd!important;
+    border-right: 1px solid #ddd !important;
 }
 
 .panel {
