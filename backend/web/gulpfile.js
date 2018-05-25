@@ -24,7 +24,7 @@ gulp.task('startServer', function () {
         middleware: function (connect, opt) {
             return [
                 proxy('/InterfaceRequest', {
-                    target: 'http://localhost:3000',
+                    target: 'http://127.0.0.1/ATS/backend/web/',
                     changeOrigin: true
                 }),
                 proxy('/otherServer', {
@@ -39,6 +39,3 @@ gulp.task('startServer', function () {
 
 //运行Gulp时，默认的Task
 gulp.task('default', ['startServer']);
-
-
-

@@ -35,7 +35,7 @@ function addOrder() {
         title: '新增订单',
         close: true,
         childrenIframeopen: true,
-        url: 'ATS/backend/web/OSM/createOrder.html'
+        url: 'OSM/createOrder.html'
     }));
 };
 
@@ -44,7 +44,7 @@ function editOrder(orderId) {
         title: '编辑订单',
         close: true,
         childrenIframeopen: true,
-        url: 'ATS/backend/web/OSM/createOrder.html?orderId=' + orderId
+        url: 'OSM/createOrder.html?orderId=' + orderId
     }));
 }
 

@@ -23,7 +23,7 @@
                     temp = $scope.loadNode(data, data[i].id);
                     if (temp.length > 0) data[i].children = temp;
                     if (data[i].pId != 0) data[i].targetType = "iframe-tab";
-                    if (data[i].url) data[i].url = "ATS/backend/web/" + data[i].url;
+                    if (data[i].url) data[i].url = data[i].url;
                 }
             }
 
@@ -32,7 +32,7 @@
 
         //获取菜单
         $scope.getMenus = function () {
-            $.post($.cfg.server_ + "InterfaceRequest.php?r=site/index", {},
+            $.post("InterfaceRequest.php?r=site/index", {},
                 function (res) {
 
                     if (res.status) {
@@ -47,7 +47,7 @@
                     id: '10008',
                     title: '首页',
                     close: false,
-                    url: "ATS/backend/web/" + 'auth/main.html'
+                    url: 'auth/main.html'
                 }));
                 App.fixIframeCotent();
                 $('.sidebar-menu').sidebarMenu({
@@ -59,7 +59,7 @@
 
         //退出登录
         $scope.loginOut = function () {
-            $.post($.cfg.server_ + "InterfaceRequest.php?r=site/logout", {},
+            $.post("InterfaceRequest.php?r=site/logout", {},
                 function (result) {
                     if (result) {
                         $.localCache.remove($.cfg.user);
