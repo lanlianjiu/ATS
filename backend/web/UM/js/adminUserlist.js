@@ -41,7 +41,7 @@
 
         $scope.saveUser = function () {
 
-            $.post($.cfg.server_ + "InterfaceRequest.php?r=adminuser/create", {
+            $.post("/CRUD/CRUD-InterfaceRequest.php?r=adminuser/create", {
                     username: $scope.formData.username,
                     password: $scope.formData.password,
                     usermobile: $scope.formData.usermobile,

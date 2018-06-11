@@ -32,7 +32,7 @@
 
         //获取菜单
         $scope.getMenus = function () {
-            $.post("InterfaceRequest.php?r=site/index", {},
+            $.post("/CRUD/CRUD-InterfaceRequest.php?r=site/index", {},
                 function (res) {
 
                     if (res.status) {

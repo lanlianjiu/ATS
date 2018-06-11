@@ -6,9 +6,21 @@ var browsersync = require('browser-sync').create(); //获取browsersync
 var filter = function (pathname, req) {
     return pathname.match('/InterfaceRequest');
 };
-var proxyMiddleware = proxy(['/InterfaceRequest'], {
+var proxyMiddleware = proxy(['/CRUD/CRUD-InterfaceRequest'], {
     target: 'http://127.0.0.1/ATS/backend/web/InterfaceRequest.php',
-    changeOrigin: true
+    changeOrigin: true,
+    logLevel: 'debug',
+    onProxyRes: function (proxyRes) {
+        const setCookieHeaders = proxyRes.headers['set-cookie'] || []
+
+        Object.keys(setCookieHeaders).forEach(function (key) {
+            setCookieHeaders[key] = setCookieHeaders[key].replace(/Path=(.*?);/, 'Path=/;')
+        });
+
+        if (setCookieHeaders) {
+            proxyRes.headers['set-cookie'] = setCookieHeaders
+        }
+    }
 });
 
 //启动一个Web服务器
