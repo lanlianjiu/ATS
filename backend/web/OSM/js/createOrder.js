@@ -7,7 +7,6 @@
         };
 
         var orderId = $.utils.getUrlParams("orderId") || "";
-        console.log(orderId)
         //获取修改数据
         $scope.getOrderInfo = function (params) {
             $.post("/CRUD/CRUD-InterfaceRequest.php?r=orders/index", {
