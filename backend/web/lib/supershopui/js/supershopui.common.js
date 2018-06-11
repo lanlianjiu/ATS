@@ -2615,7 +2615,8 @@ var App = function () {
         },
 
         getGlobalImgPath: function () {
-            return basePath + imgPath;
+            //return basePath + imgPath;
+            return "/lib/supershopui/ui/img/";
         },
 
         setGlobalPluginsPath: function (path) {
