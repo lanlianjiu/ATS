@@ -9,7 +9,7 @@
         var orderId = $.utils.getUrlParams("orderId") || "";
         //获取修改数据
         $scope.getOrderInfo = function (params) {
-            $.post("/CRUD/CRUD-InterfaceRequest.php?r=orders/index", {
+            $.post("/CRUD-InterfaceRequest.php?r=orders/index", {
                     orderId: orderId
                 },
                 function (res) {

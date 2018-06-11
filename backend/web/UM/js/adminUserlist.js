@@ -41,7 +41,7 @@
 
         $scope.saveUser = function () {
 
-            $.post("/CRUD/CRUD-InterfaceRequest.php?r=adminuser/create", {
+            $.post("/CRUD-InterfaceRequest.php?r=adminuser/create", {
                     username: $scope.formData.username,
                     password: $scope.formData.password,
                     usermobile: $scope.formData.usermobile,
@@ -83,7 +83,7 @@
         };
 
         $(document).ready(function () {
-            $.get($.cfg.server_ + "InterfaceRequest.php?r=plugins/regionplugin", {
+            $.get("/CRUD-InterfaceRequest.php?r=plugins/regionplugin", {
 
                 },
                 function (res) {

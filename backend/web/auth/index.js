@@ -32,7 +32,7 @@
 
         //获取菜单
         $scope.getMenus = function () {
-            $.post("/CRUD/CRUD-InterfaceRequest.php?r=site/index", {},
+            $.post("CRUD-InterfaceRequest.php?r=site/index", {},
                 function (res) {
 
                     if (res.status) {
@@ -59,7 +59,7 @@
 
         //退出登录
         $scope.loginOut = function () {
-            $.post("InterfaceRequest.php?r=site/logout", {},
+            $.post("CRUD-InterfaceRequest.php?r=site/logout", {},
                 function (result) {
                     if (result) {
                         $.localCache.remove($.cfg.user);

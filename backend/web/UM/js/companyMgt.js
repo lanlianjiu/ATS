@@ -94,7 +94,7 @@
 
         $scope.getTree = function () {
 
-            $.post("/CRUD/CRUD-InterfaceRequest.php?r=company/index", {},
+            $.post("/CRUD-InterfaceRequest.php?r=company/index", {},
                 function (data) {
 
                     if (data.status) {
@@ -142,7 +142,7 @@
 
         $scope.getCtype = function () {
 
-            $.post("/CRUD/CRUD-InterfaceRequest.php?r=company/ctype", {},
+            $.post("/CRUD-InterfaceRequest.php?r=company/ctype", {},
                 function (res) {
 
                     if (res.status) {
