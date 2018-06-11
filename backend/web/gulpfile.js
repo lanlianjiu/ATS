@@ -6,7 +6,7 @@ var browsersync = require('browser-sync').create(); //获取browsersync
 var filter = function (pathname, req) {
     return pathname.match('/InterfaceRequest');
 };
-var proxyMiddleware = proxy(['/InterfaceRequest', '/InterfaceRequest.php'], {
+var proxyMiddleware = proxy(['/InterfaceRequest'], {
     target: 'http://127.0.0.1/ATS/backend/web/InterfaceRequest.php',
     changeOrigin: true
 });
