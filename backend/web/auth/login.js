@@ -17,7 +17,7 @@
                 rememberMe: Number($scope.data.rememberMe)
             };
 
-            $.post("InterfaceRequest.php?r=site/login", data,
+            $.post("CRUD-InterfaceRequest.php?r=site/login", data,
                 function (result) {
                     $scope.loginSubmit = false;
                     if (result.status) {
