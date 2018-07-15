@@ -1,5 +1,5 @@
 {
-  "name": "mca",
+  "name": "ats",
   "version": "1.0.0",
   "description": "yii2.0",
   "main": "gulpfile.js",
@@ -13,6 +13,7 @@
     "gulp": "^3.9.1",
     "gulp-connect": "^5.5.0",
     "gulp-livereload": "^3.8.1",
+    "gulp-rev": "^8.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-sftp": "^0.1.5",
     "gulp-webserver": "^0.9.1",
@@ -26,10 +27,16 @@
     "type": "git",
     "url": "git+https://github.com/lanlianjiu/MCA.git"
   },
-  "author": "",
+  "author": "lanlianjiu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lanlianjiu/MCA/issues"
   },
-  "homepage": "https://github.com/lanlianjiu/MCA#readme"
+  "homepage": "https://github.com/lanlianjiu/MCA#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "atrkey"
+  ]
 }

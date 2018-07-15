@@ -1,0 +1,21 @@
+{
+  "name": "ats",
+  "description": "yii2.0",
+  "main": "gulpfile.js",
+  "authors": [
+    "lanlianjiu"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "atrkey"
+  ],
+  "homepage": "https://github.com/lanlianjiu/ATS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ]
+}
